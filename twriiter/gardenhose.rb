@@ -40,7 +40,8 @@ def upload_tweets(file_path)
   file = file_path.split(File::SEPARATOR).last
   date_dir = Date.today.strftime('%Y%m%d')
   s3 = Aws::S3::Resource.new
-  s3_file = s3.bucket('gly.fish').object("tweets/#{date_dir}/#{file}")
+  remote_object = "tweets/public_stream/#{date_dir}/#{file}"
+  s3_file = s3.bucket('gly.fish').object(remote_object)
   s3_file.upload_file(file_path)
 end
 
