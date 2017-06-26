@@ -1,1 +1,1 @@
-rvm --create use 2.4.0@tweet_sink
+rvm --create use 2.4.0@data_sink
