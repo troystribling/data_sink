@@ -4,7 +4,7 @@ require 'date'
 
 module Tweets
 
-  def download_tweets(start_date: nil, end_date: nil, limit: nil, bucket_name: 'gly.fish', local_dir: '/tmp/tweets', remote_dir: 'tweets/public')
+  def download_tweets(start_date: nil, end_date: nil, limit: nil, bucket_name: 'gly.fish', local_dir: '/tmp/tweets', remote_dir: 'tweets/public_stream')
     count = 0
     default_date = Date.today.strftime('%Y%m%d')
 
@@ -19,7 +19,7 @@ module Tweets
     bucket = s3.bucket(bucket_name)
 
     (start_date..end_date).each do |date|
-      remote_tweets_folder = "tweets/public_stream/#{date.strftime('%Y%m%d')}"
+      remote_tweets_folder = "#{remote_dir}/#{date.strftime('%Y%m%d')}"
       remote_files = bucket.objects(prefix: remote_tweets_folder)
       remote_files.each do |remote_file|
         local_file_path = File.join([local_dir, "#{remote_file.key.split(File::SEPARATOR).last}"])
