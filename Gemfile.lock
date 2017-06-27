@@ -30,6 +30,9 @@ GEM
       eventmachine (~> 1.0)
       http_parser.rb (~> 0.6)
       simple_oauth (~> 0.2)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     equalizer (0.0.10)
     eventmachine (1.2.3)
     faraday (0.9.2)
@@ -85,6 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (~> 2)
+  em-websocket
   eventmachine
   pry
   tweetstream
