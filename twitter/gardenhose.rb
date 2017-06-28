@@ -43,6 +43,7 @@ def upload_tweets(file_path)
   remote_object = "tweets/public_stream/#{date_dir}/#{file}"
   s3_file = s3.bucket('gly.fish').object(remote_object)
   s3_file.upload_file(file_path)
+  puts "Uloaded #{remote_object}"
 end
 
 EM.run do
