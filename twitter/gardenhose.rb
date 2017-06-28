@@ -3,6 +3,7 @@ require 'aws-sdk'
 require 'tempfile'
 require 'json'
 require 'yaml'
+require 'date'
 
 credentials = YAML.load_file(File.join([ENV['HOME'], '.twitter/credentials.yml']))
 
@@ -43,7 +44,7 @@ def upload_tweets(file_path)
   remote_object = "tweets/public_stream/#{date_dir}/#{file}"
   s3_file = s3.bucket('gly.fish').object(remote_object)
   s3_file.upload_file(file_path)
-  puts "Uloaded #{remote_object}"
+  puts "#{DateTime.now}: Uloaded #{remote_object}"
 end
 
 EM.run do
