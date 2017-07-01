@@ -1,0 +1,11 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Tweets	twitter/tweets.rb	/^module Tweets$/;"	m
+download_tweets	twitter/tweets.rb	/^  def download_tweets(start_date: nil, end_date: nil, limit: nil, bucket_name: 'gly.fish', local_dir: '\/tmp\/tweets', remote_dir: 'tweets\/public_stream')$/;"	f	class:Tweets
+read_tweets_from_file	twitter/tweets.rb	/^  def read_tweets_from_file(file_path)$/;"	f	class:Tweets
+upload_tweets	twitter/gardenhose.rb	/^def upload_tweets(file_path)$/;"	f
+write_tweets	twitter/gardenhose.rb	/^def write_tweets$/;"	f

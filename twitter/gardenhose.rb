@@ -15,7 +15,7 @@ TweetStream.configure do |config|
   config.auth_method = :oauth
 end
 
-tweets_per_file = (ARGV[0]|| 1000).to_i
+@tweets_per_file = (ARGV[0]|| 1000).to_i
 tweets = []
 count = 0
 
@@ -44,7 +44,7 @@ def upload_tweets(file_path)
   remote_object = "tweets/public_stream/#{date_dir}/#{file}"
   s3_file = s3.bucket('gly.fish').object(remote_object)
   s3_file.upload_file(file_path)
-  puts "#{DateTime.now}: Uloaded #{remote_object}"
+  puts "#{DateTime.now}: Uploaded #{@tweets_per_file} tweets to #{remote_object}"
 end
 
 EM.run do
@@ -58,7 +58,7 @@ EM.run do
   client.sample do |status|
     count += 1
     tweets.push(status.attrs)
-    if count % tweets_per_file == 0
+    if count % @tweets_per_file == 0
       @tweets_file_queue.push(tweets)
       tweets = []
       write_tweets
