@@ -5,7 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Tweets	twitter/tweets.rb	/^module Tweets$/;"	m
-download_tweets	twitter/tweets.rb	/^  def download_tweets(start_date: nil, end_date: nil, limit: nil, bucket_name: 'gly.fish', local_dir: '\/tmp\/tweets', remote_dir: 'tweets\/public_stream')$/;"	f	class:Tweets
-read_tweets_from_file	twitter/tweets.rb	/^  def read_tweets_from_file(file_path)$/;"	f	class:Tweets
+download_from_s3	twitter/tweets.rb	/^  def download_from_s3(start_date: nil, end_date: nil, bucket_name: 'gly.fish', local_dir: '\/tmp\/tweets', remote_dir: 'tweets\/public_stream')$/;"	f	class:Tweets
+read_from_file	twitter/tweets.rb	/^  def read_from_file(file_path)$/;"	f	class:Tweets
 upload_tweets	twitter/gardenhose.rb	/^def upload_tweets(file_path)$/;"	f
 write_tweets	twitter/gardenhose.rb	/^def write_tweets$/;"	f
