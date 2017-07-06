@@ -38,13 +38,13 @@ def write_tweets
 end
 
 def upload_tweets(file_path)
-  file = file_path.split(File::SEPARATOR).last
+  file_name = File.basename(file_path)
   date_dir = Date.today.strftime('%Y%m%d')
   s3 = Aws::S3::Resource.new
-  remote_object = "tweets/public_stream/#{date_dir}/#{file}"
+  remote_object = "tweets/public_stream/#{date_dir}/#{file_name}"
   s3_file = s3.bucket('gly.fish').object(remote_object)
   s3_file.upload_file(file_path)
-  puts "#{DateTime.now}: Uploaded #{@tweets_per_file} tweets to #{remote_object}"
+  puts "#{DateTime.now}: UPLOADED #{@tweets_per_file} tweets to #{remote_object}"
 end
 
 EM.run do
